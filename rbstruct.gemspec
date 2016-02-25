@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Patrik Pettersson"]
   spec.email         = ["pettersson.pa@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Create C like structs in ruby}
+  spec.description   = %q{C like structs for ruby allowing read/write from binary files"}
+  spec.homepage      = "https://github.com/kaffepanna/rbstruct"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
