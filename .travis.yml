@@ -13,8 +13,7 @@ deploy:
       tags: true
       repo: kaffepanna/rbstruct
   - provider: releases
-    api_key:
-      secure: $GITHUB_TOKEN
+    api_key: $GITHUB_TOKEN
     file: ${GEM_FILE}
     file_glob: true
     on:
