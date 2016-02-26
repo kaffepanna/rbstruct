@@ -3,7 +3,7 @@ rvm:
   - 2.2.3
 script: bundle exec rake spec
 before_deploy:
-  - bundle exec rake gem:build
+  - bundle exec rake build
   - export GEM_FILE="$(ls -1 pkg/*.gem | tail -n1)"
 deploy:
   - provider: rubygems
@@ -11,7 +11,7 @@ deploy:
     gem: rbstruct
     on:
       tags: true
-      repo: kaffepanna/rbtelldus
+      repo: kaffepanna/rbstruct
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
