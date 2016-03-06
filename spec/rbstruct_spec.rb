@@ -1,27 +1,35 @@
 require 'spec_helper'
 
 
+shared_examples 'a struct class' do |struct|
+  it { is_expected.to respond_to :bsize }
+  it { is_expected.to respond_to :size }
+  it { is_expected.to respond_to :read }
+  it { is_expected.to be < RbStruct::StructBase }
+  it { is_expected.to be < Array }
+end
+
+shared_examples 'a struct instance' do |instance|
+  it { is_expected.to respond_to :to_s }
+  it { is_expected.to be_a RbStruct::StructBase }
+end
+
 
 describe RbStruct do
 
-  context 'Class methods' do
-    Header = RbStruct do
-      int :value
-      int :values, 10
+  describe '.Struct' do
+    subject { method(:RbStruct) }
+    it { expect { |b| subject.call(&b) }.to yield_control }
+
+    context 'returns a class' do
+      subject { RbStruct() }
+      it_behaves_like 'a struct class'
     end
 
-    subject { Header }
-    let(:instance) { subject.new }
-    it 'defines a class' do
-      expect(subject).to be_instance_of Class
-    end
-
-    describe '#size' do
-      it { expect(subject.size).to eq(11) }
-    end
-
-    describe '#bsize' do
-      it { expect(subject.bsize).to eq(4*11) }
+    context 'class instance' do
+      subject { RbStruct().new }
+      it_behaves_like 'a struct instance'
     end
   end
+
 end
