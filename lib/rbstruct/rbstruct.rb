@@ -8,14 +8,14 @@ module RbStruct
             :unsigned_char => {:size => 1, :str => "C"},
             :unsigned_short => {:size => 2, :str => "S"},
             :unsigned_int => {:size => 4, :str => "I"},
-            :unsigned_long => {:size => 8, :str => "L_"}
-            :uint8_t => {:size => 1, :str => "C" }
-            :uint16_t => {:size => 2, :str => "S" }
-            :uint32_t => {:size => 8, :str => "L" }
-            :uint64_t => {:size => 16, :str => "Q" }
-            :int8_t => {:size => 1, :str => "c" }
-            :int16_t => {:size => 2, :str => "s" }
-            :int32_t => {:size => 8, :str => "l" }
+            :unsigned_long => {:size => 8, :str => "L_"},
+            :uint8_t => {:size => 1, :str => "C" },
+            :uint16_t => {:size => 2, :str => "S" },
+            :uint32_t => {:size => 8, :str => "L" },
+            :uint64_t => {:size => 16, :str => "Q" },
+            :int8_t => {:size => 1, :str => "c" },
+            :int16_t => {:size => 2, :str => "s" },
+            :int32_t => {:size => 8, :str => "l" },
             :int64_t => {:size => 16, :str => "q" }
           }
 
