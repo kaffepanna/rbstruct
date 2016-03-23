@@ -116,7 +116,7 @@ module RbStruct
       format = self.format_string*n
       len = self.bsize*n
       array = f.read(len).unpack(format)
-      return array.first if n == 1
+      return self.new(array) if n == 1
       return Array.new(n) { self.new(array.slice!(0, self.size)) }
     end
 
