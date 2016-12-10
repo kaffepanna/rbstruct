@@ -34,10 +34,10 @@ end
 file = open(dev, 'r+')
 
 file.seek(512)
-header = RbStruct::read_struct(file, GptHeader).first
+header = GptHeader.read(file)
 
 file.seek(512*header.backup_lba)
-backup = RbStruct::read_struct(file, GptHeader).first
+backup = GptHeader.read(file)
 
 puts "Primary header"
 puts header.inspect
