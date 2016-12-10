@@ -36,11 +36,20 @@ file = open(dev, 'r+')
 file.seek(512)
 header = GptHeader.read(file)
 
+file.seek(512*header.partition_array_lba)
+lbas = GptPartEntry.read(file, header.n_partition_array)
 file.seek(512*header.backup_lba)
 backup = GptHeader.read(file)
 
+
 puts "Primary header"
 puts header.inspect
+puts "----------------------------------------"
+
+lbas.reject { |l| l.last_lba == 0 }.each do |l|
+	puts l.inspect
+end
+
 puts "----------------------------------------"
 puts "Backup header"
 puts backup.inspect
