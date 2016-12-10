@@ -69,10 +69,11 @@ end
 
 Reading and writing:
 ```ruby
-f = File.open('map.bsp', 'r')
-header = Bsp46Header.read(f)
+File.open('map.bsp', 'r') do |f|
+  header = Bsp46Header.read(f)
 
-header.write(f)
+  f.write(header)
+end
 ```
 
 You can also choose to read multiple structs from the file in one go
@@ -97,6 +98,7 @@ Example = RbStruct do
   def bump_version
     version = version+1
   end
+end
 ```
 
 ## Development
